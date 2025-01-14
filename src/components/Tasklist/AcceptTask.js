@@ -3,7 +3,7 @@ import {toast} from 'react-toastify';
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/userSlice";
 
-const AcceptTask=({empId, taskId, setemployeeTasks}) => {
+const AcceptTask=({empId, taskId}) => {
     const dispatch=useDispatch();
 
     const acceptTask=async() => {
@@ -16,7 +16,6 @@ const AcceptTask=({empId, taskId, setemployeeTasks}) => {
     
             if(response.data.success) {
                 dispatch(setUser(response.data.data));
-                setemployeeTasks(response.data.data.tasks);
 
                 toast.success("Task Accepted", {
                     position: "top-right",

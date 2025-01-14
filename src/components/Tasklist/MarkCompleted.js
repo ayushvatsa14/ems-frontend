@@ -3,7 +3,7 @@ import {toast} from 'react-toastify';
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/userSlice";
 
-const MarkCompleted=({empId, taskId, setemployeeTasks}) => {
+const MarkCompleted=({empId, taskId}) => {
     const dispatch=useDispatch();
 
     const markCompleted=async() => {
@@ -16,7 +16,6 @@ const MarkCompleted=({empId, taskId, setemployeeTasks}) => {
     
             if(response.data.success){
                 dispatch(setUser(response.data.data));
-                setemployeeTasks(response.data.data.tasks);
                 
                 toast.success("Task Completed", {
                     position: "top-right",
@@ -26,7 +25,7 @@ const MarkCompleted=({empId, taskId, setemployeeTasks}) => {
                     pauseOnHover: true,
                     draggable: true,
                     progress: undefined,
-                  });
+                });
             }
             else{
                 alert(`Error: ${response.data.message}`);
@@ -39,7 +38,7 @@ const MarkCompleted=({empId, taskId, setemployeeTasks}) => {
     }
 
     return (
-        <button onClick={markCompleted}>Mark Completed</button>
+        <button className="py-2 px-2 w-fit rounded bg-green-500" onClick={markCompleted}>Mark Completed</button>
     );
 }
 

@@ -3,7 +3,7 @@ import {toast} from 'react-toastify';
 import { useDispatch } from "react-redux";
 import { setUser } from "../../features/userSlice";
 
-const MarkFailed=({empId, taskId, setemployeeTasks}) => {
+const MarkFailed=({empId, taskId}) => {
     const dispatch=useDispatch();
 
     const markFailed=async() => {
@@ -16,7 +16,6 @@ const MarkFailed=({empId, taskId, setemployeeTasks}) => {
     
             if(response.data.success) {
                 dispatch(setUser(response.data.data));
-                setemployeeTasks(response.data.data.tasks);
 
                 toast.warning("Task Failed", {
                     position: "top-right",
@@ -39,7 +38,7 @@ const MarkFailed=({empId, taskId, setemployeeTasks}) => {
     }
 
     return (
-        <button onClick={markFailed}>Mark Failed</button>
+        <button className="py-2 px-7 w-fit rounded bg-red-600" onClick={markFailed}>Mark Failed</button>
     );
 }
 

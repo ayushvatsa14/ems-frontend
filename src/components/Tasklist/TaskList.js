@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import MarkCompleted from "./MarkCompleted";
 import MarkFailed from "./MarkFailed";
@@ -7,12 +6,11 @@ import AcceptTask from "./AcceptTask";
 const TaskList=() => {
     const tasks=useSelector(state => state.user.user.tasks);
     const employeeId=useSelector(state => state.user.user);
-    console.log(employeeId);
 
     const getRandomBackgroundColor=() => {
         const colors=['bg-red-400', 'bg-green-400', 'bg-yellow-400', 'bg-blue-400'];
         const randomIndex=Math.floor(Math.random() * colors.length);
-        return colors[randomIndex];
+        return colors[randomIndex]; 
     };
 
     return (
@@ -33,7 +31,7 @@ const TaskList=() => {
                         </div>
                     }
                     {
-                        !task.active && !task.completed && !task.failed && < AcceptTask empId={employeeId._id} taskId={task._id} />
+                        !task.active && !task.completed && !task.failed && <AcceptTask empId={employeeId._id} taskId={task._id} />
                     }
                     {
                         task.completed && <div className="mt-4 mx-auto py-2 px-2 w-fit rounded bg-green-500">Completed</div>
@@ -42,7 +40,7 @@ const TaskList=() => {
                         task.failed && <div className="mt-4 mx-auto py-2 px-7 w-fit rounded bg-red-600">Failed</div>
                     }     
                 </div>
-})}
+            })}
         </div>
     )
 }

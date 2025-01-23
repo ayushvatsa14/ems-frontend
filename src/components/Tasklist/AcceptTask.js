@@ -1,6 +1,6 @@
 import axios from "axios";
 import {toast} from 'react-toastify';
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { setUser } from "../../features/userSlice";
 
 const AcceptTask=({empId, taskId}) => {
@@ -38,7 +38,9 @@ const AcceptTask=({empId, taskId}) => {
     }
 
     return (
-        <button onClick={acceptTask}>Accept Task</button>
+        <div className="mt-4 w-full flex justify-center">
+            <button className="py-2 px-7 rounded bg-green-500" onClick={acceptTask}>Accept Task</button>
+        </div>
     );
 }
 
